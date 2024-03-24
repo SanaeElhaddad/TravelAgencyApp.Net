@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,9 @@ namespace TravelAgencyApp.View
         {
             unitOfWork=new UnitOfWork();
             InitializeComponent();
+            this.Size = new Size(1390,570 );
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -35,7 +39,7 @@ namespace TravelAgencyApp.View
         {
             try
             {
-                string titre = zoneTitre.Text;
+            string titre = zoneTitre.Text;
             string description = zoneDescription.Text;
             String destination=zoneDestination.Text;
             DateTime dateDepart = dateDepartPicker.Value;
@@ -43,19 +47,6 @@ namespace TravelAgencyApp.View
             int prix = int.Parse(zonePrix.Text);
             int placesDisponibles = int.Parse(zoneNbPlace.Text);
             int guideId = int.Parse(GuidecomboBox.SelectedItem.ToString());
-            if (guideId != null)
-            {
-                MessageBox.Show("pas null");
-            }
-
-
-            else
-            {
-                MessageBox.Show("null");
-            }
-              
-            
-           
             Voyage nouveauVoyage = new Voyage()
             {
                 Titre = titre,
@@ -70,6 +61,12 @@ namespace TravelAgencyApp.View
             unitOfWork.VoyageRepository.Insert(nouveauVoyage);
             unitOfWork.Save();
                 MessageBox.Show("Le voyage a été ajouté avec succès !");
+                zoneId.Text = null;
+                zoneTitre.Text = null;
+                zoneDescription.Text = null;
+                zoneDestination.Text = null;
+                zonePrix.Text = null;
+                zoneNbPlace.Text = null;
             }
             catch (DbEntityValidationException ex)
             {
@@ -96,6 +93,102 @@ namespace TravelAgencyApp.View
             {
                 GuidecomboBox.Items.Add(guide.PersonnelId);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAfficher_Click(object sender, EventArgs e)
+        {
+            IEnumerable<Voyage> voyages=unitOfWork.VoyageRepository.GetAll();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource= voyages;
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            
+            int id = int.Parse(zoneId.Text);
+            Voyage v=unitOfWork.VoyageRepository.GetById(id);
+            if (v == null)
+            {
+                MessageBox.Show("Le voyage avec l'ID spécifié n'a pas été trouvé.");
+                
+            }
+            string titre = zoneTitre.Text;
+            string description = zoneDescription.Text;
+            String destination = zoneDestination.Text;
+            DateTime dateDepart = dateDepartPicker.Value;
+            DateTime dateRetour = dateRetourPicker.Value;
+            int prix = int.Parse(zonePrix.Text);
+            int placesDisponibles = int.Parse(zoneNbPlace.Text);
+            int guideId = int.Parse(GuidecomboBox.SelectedItem.ToString());
+            v.Titre = titre;
+            v.Description = description;
+            v.Destinations = destination;
+            v.DateDepart = dateDepart;
+            v.DateRetour = dateRetour;
+            v.Prix = prix;
+            v.NombrePlacesDisponibles = placesDisponibles;
+            v.GuideId = guideId;
+           
+            unitOfWork.VoyageRepository.Update(v);
+            unitOfWork.Save();
+            MessageBox.Show("Le voyage a ete modifier avec succes !");
+            dataGridView1.DataSource=unitOfWork.VoyageRepository.GetAll();
+            zoneTitre.Text=null;
+            zoneDescription=null;
+            zoneDestination.Text=null;
+            zonePrix.Text=null;
+            zoneNbPlace.Text=null;
+        }
+
+        private void BtnSupprimer_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(zoneId.Text);
+            Voyage v = unitOfWork.VoyageRepository.GetById(id);
+            if (v == null)
+            {
+                MessageBox.Show("Le voyage avec l'ID spécifié n'a pas été trouvé.");
+
+            }
+            unitOfWork.VoyageRepository.Delete(id);
+            unitOfWork.Save();
+            MessageBox.Show("Le voyage a ete supprimer avec succes !");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GestionVoyage gestionVoyage = new GestionVoyage();
+            gestionVoyage.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GestionGuide gestionGuide = new GestionGuide();
+            gestionGuide.Show();
         }
     }
 }

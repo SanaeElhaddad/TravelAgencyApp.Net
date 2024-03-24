@@ -97,7 +97,7 @@ namespace TravelAgencyApp.Repository
         }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            dbContext.Dispose();
         }
     }
 }

@@ -84,6 +84,12 @@
     <Compile Include="Repository\ReservationRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Repository\VoyageRepository.cs" />
+    <Compile Include="View\GestionGuide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GestionGuide.Designer.cs">
+      <DependentUpon>GestionGuide.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GestionVoyage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,9 +107,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GestionGuide.resx">
+      <DependentUpon>GestionGuide.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GestionVoyage.resx">
       <DependentUpon>GestionVoyage.cs</DependentUpon>
@@ -122,7 +132,36 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\airplane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\landscape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tour-guide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3163379.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

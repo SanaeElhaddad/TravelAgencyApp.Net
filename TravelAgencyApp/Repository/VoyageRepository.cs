@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using TravelAgencyApp.DOA;
@@ -49,5 +50,7 @@ namespace TravelAgencyApp.Repository
             table.Attach(entity);
             db.Entry(entity).State = EntityState.Modified;
         }
+       
+
     }
 }

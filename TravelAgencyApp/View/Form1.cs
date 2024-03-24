@@ -16,14 +16,34 @@ namespace TravelAgencyApp
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             GestionVoyage gestionVoyage = new GestionVoyage();
-
-            // Afficher la deuxième fenêtre
             gestionVoyage.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GestionGuide gestionGuide = new GestionGuide();
+            gestionGuide.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
