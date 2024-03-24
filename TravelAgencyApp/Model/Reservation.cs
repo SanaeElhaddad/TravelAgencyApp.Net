@@ -15,15 +15,13 @@ namespace TravelAgencyApp.Model
         [Key]
         public int ReservationId { get; set; }
 
-        public Voyage Voyage { get; set; }
-
         [ForeignKey("Voyage")]
         public int VoyageId { get; set; }
-
-        public Client Client { get; set; }
+        public virtual Voyage Voyage { get; set; }
 
         [ForeignKey("Client")]
         public int ClientId { get; set; }
+        public virtual Client Client { get; set; }
 
         [Required]
         public DateTime DateReservation { get; set; }

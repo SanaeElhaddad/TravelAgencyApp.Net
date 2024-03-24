@@ -84,17 +84,35 @@
     <Compile Include="Repository\ReservationRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Repository\VoyageRepository.cs" />
+    <Compile Include="View\GestionClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GestionClient.Designer.cs">
+      <DependentUpon>GestionClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GestionGuide.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\GestionGuide.Designer.cs">
       <DependentUpon>GestionGuide.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GestionReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GestionReservation.Designer.cs">
+      <DependentUpon>GestionReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GestionVoyage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\GestionVoyage.Designer.cs">
       <DependentUpon>GestionVoyage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModifierClientFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModifierClientFormcs.Designer.cs">
+      <DependentUpon>ModifierClientFormcs.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Migrations\202403231606503_mgdata.resx">
       <DependentUpon>202403231606503_mgdata.cs</DependentUpon>
@@ -112,11 +130,20 @@
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GestionClient.resx">
+      <DependentUpon>GestionClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GestionGuide.resx">
       <DependentUpon>GestionGuide.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GestionReservation.resx">
+      <DependentUpon>GestionReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GestionVoyage.resx">
       <DependentUpon>GestionVoyage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ModifierClientFormcs.resx">
+      <DependentUpon>ModifierClientFormcs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
